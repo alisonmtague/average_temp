@@ -9,8 +9,8 @@ $(document).ready(function(){
 			dataType: "jsonp",
 			method: "GET",
 			success: function(parsed_json){
-				var temp_f = parsed_json['data']['current_condition'][0]['temp_F'];
-				var temp_c = parsed_json['data']['current_condition'][0]['temp_C'];
+				temp_f = parsed_json['data']['current_condition'][0]['temp_F'];
+				temp_c = parsed_json['data']['current_condition'][0]['temp_C'];
 				console.log(temp_f);
 				console.log(temp_c);
 				$("#temp-f h3").text(temp_f + "°F")
@@ -25,21 +25,20 @@ $(document).ready(function(){
 			method: "GET",
 			success: function(parsed_json){
 				var temp_kelvin = parsed_json['main']['temp'];
-				var temp_f2 = ((temp_kelvin - 273.15)*1.8000 + 32.00);
-				var temp_c2 = (temp_kelvin - 273.15 + " celsius");
+				temp_f2 = ((temp_kelvin - 273.15)*1.8000 + 32.00);
+				temp_c2 = (temp_kelvin - 273.15 + " celsius");
 				console.log((temp_kelvin - 273.15)*1.8000 + 32.00);
 				console.log(temp_kelvin - 273.15 + " celsius");
 			}
 		})
-		
+	var average = function(x, y){
+		return (x + y)/2;
+	}
+	console.log(average(temp_f, temp_f2));
+	console.log(average(temp_c, temp_c2));
 		this.reset();
 	})
 });
-
-Var avg_temp = {temp1: 80, Temp2: 78}
-averageTemp: function() {
-	return (this.temp1 + this.temp2) / 2;
-}
 
 
 
